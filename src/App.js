@@ -5,6 +5,7 @@ import Songs from './components/song/Songs';
 import RequestSong from './components/song/RequestSong';
 import About from './components/pages/About';
 import './App.css';
+import { toUnicode } from 'punycode';
 
 class App extends Component {
   state = {
@@ -53,6 +54,11 @@ class App extends Component {
       })});
   }
 
+  // Delete song.
+  delSong = (id) => {
+    this.setState({ songs: [...this.state.songs.filter(song => song.id !== id)] });
+  }
+
   // Request a song.
   requestSong = (title) => {
     console.log(title);
@@ -69,7 +75,7 @@ class App extends Component {
               <React.Fragment>
                 <RequestSong requestSong={this.requestSong} />
                 <div className="main">
-                  <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} />
+                  <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} delSong={this.delSong} />
                 </div>
               </React.Fragment>
             )} />

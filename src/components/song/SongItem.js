@@ -24,10 +24,21 @@ export class SongItem extends Component {
 
         return (
             <div style={this.getStyle()}>
-                <p><i className="fa fa-add" onClick={this.props.markAddedToLibrary.bind(this, id)} style={this.getButtonStyle()}>+</i> {title}</p>
+                <p><i className="fa fa-add" onClick={this.props.markAddedToLibrary.bind(this, id)} style={this.getButtonStyle()}>+</i> {title} <button onClick={this.props.delSong.bind(this, id)} style={delBtnStyle}>X</button></p>
             </div>
         )
     }
+}
+
+// Styles
+const delBtnStyle = {
+    background: "#ff0000",
+    color: "#fff",
+    border: "none",
+    padding: "5px 8px",
+    borderRadius: "50%",
+    cursor: "pointer",
+    float: "right"
 }
 
 // PropTypes
