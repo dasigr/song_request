@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Songs from './components/Songs';
+import RequestSong from './components/RequestSong';
+import About from './components/pages/About';
 import './App.css';
 
 class App extends Component {
@@ -50,16 +53,31 @@ class App extends Component {
       })});
   }
 
+  // Request a song.
+  requestSong = (title) => {
+    console.log(title);
+  }
+
   render() {
     return (
-      <div className="App">
-        <Header />
-        <div className="main">
-          <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} />
+      <Router>
+        <div className="App">
+          <div className="container">
+            <Header />
+
+            <Route exact path="/" render={props => (
+              <React.Fragment>
+                <RequestSong requestSong={this.requestSong} />
+                <div className="main">
+                  <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} />
+                </div>
+              </React.Fragment>
+            )} />
+
+            <Route path="/about" component={About} />
+          </div>
         </div>
-        <footer>
-        </footer>
-      </div>
+      </Router>
     )
   };
 }
