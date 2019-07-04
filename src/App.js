@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Header from './components/layout/Header';
-import Songs from './components/Songs';
-import RequestSong from './components/RequestSong';
+import Songs from './components/song/Songs';
+import RequestSong from './components/song/RequestSong';
 import About from './components/pages/About';
 import './App.css';
 
