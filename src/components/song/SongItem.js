@@ -43,7 +43,9 @@ const delBtnStyle = {
 
 // PropTypes
 SongItem.propType = {
-  song: PropTypes.object.isRequired
+  song: PropTypes.object.isRequired,
+  markAddedToLibrary: PropTypes.func.isRequired,
+  delSong: PropTypes.func.isRequired
 }
 
 export default SongItem;

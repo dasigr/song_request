@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class AddSong extends Component {
     state = {
@@ -33,6 +34,11 @@ export class AddSong extends Component {
             </form>
         )
     }
+}
+
+// PropTypes
+AddSong.propType = {
+    addSong: PropTypes.func.isRequired
 }
 
 export default AddSong;

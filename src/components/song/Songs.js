@@ -12,7 +12,9 @@ class Songs extends Component {
 
 // PropTypes
 Songs.propType = {
-  songs: PropTypes.array.isRequired
+  songs: PropTypes.array.isRequired,
+  markAddedToLibrary: PropTypes.func.isRequired,
+  delSong: PropTypes.func.isRequired
 }
 
 export default Songs;
