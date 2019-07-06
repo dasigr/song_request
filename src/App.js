@@ -35,6 +35,17 @@ class App extends Component {
       .then(res => this.setState({ songs: [...this.state.songs.filter(song => song.id !== id)] }));
   }
 
+  // Get CSRF token.
+  getCsrfToken = () => {
+    axios.get('http://api.songrequest.local/rest/session/token')
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   // Add song.
   addSong = (title) => {
     axios({
@@ -42,14 +53,14 @@ class App extends Component {
       url: "http://api.songrequest.local/entity/node?_format=hal_json",
       headers: {
         'Content-Type': 'application/hal+json',
-        'X-CSRF-Token': 'qPjvT4qio2xrDreVaEEVhJ8jRJamLXdiRi4eaqHnmaA',
+        'X-CSRF-Token': '',
         'Accept': 'application/json'
       },
-      withCredentials: true,
-      auth: {
-        username: "admin",
-        password: "admin"
-      },
+      // withCredentials: true,
+      // auth: {
+      //   username: "admin",
+      //   password: "admin"
+      // },
       data: {
         _links: {
           type: {
@@ -68,7 +79,10 @@ class App extends Component {
         ]
       }
     })
-      .then(res => this.setState({ songs: [...this.state.songs, res.data] }));
+      .then(res => this.setState({ songs: [...this.state.songs, res.data] }))
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // Request a song.
