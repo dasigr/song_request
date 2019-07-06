@@ -37,10 +37,36 @@ class App extends Component {
 
   // Add song.
   addSong = (title) => {
-    axios.post("//dev-songhits.pantheonsite.io/songs", {
-      title: title,
-      artist: "Max Surban",
-      added: false
+    axios({
+      method: "post",
+      url: "http://api.songrequest.local/entity/node?_format=hal_json",
+      headers: {
+        'Content-Type': 'application/hal+json',
+        'X-CSRF-Token': 'qPjvT4qio2xrDreVaEEVhJ8jRJamLXdiRi4eaqHnmaA',
+        'Accept': 'application/json'
+      },
+      withCredentials: true,
+      auth: {
+        username: "admin",
+        password: "admin"
+      },
+      data: {
+        _links: {
+          type: {
+            href: "http://api.songrequest.local/rest/type/node/article"
+          }
+        },
+        title: [
+          {
+            value: title
+          }
+        ],
+        type: [
+          {
+            target_id: "article"
+          }
+        ]
+      }
     })
       .then(res => this.setState({ songs: [...this.state.songs, res.data] }));
   }
