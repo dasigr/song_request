@@ -1,21 +1,13 @@
 .song-item {
-  padding: 10px 0;
-  border-bottom: 1px #ccc solid;
+  padding: 0.5em 0;
+  border-bottom: 1px #222326 solid;
 }
 
-.delete-song {
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 8px;
-  border-radius: 50%;
+.action-add-to-library {
+  cursor: pointer;
+}
+
+.action-delete-song {
   cursor: pointer;
   float: right;
-}
-
-.fa {
-  padding: 1px 4px;
-  border: 1px #ccc solid;
-  border-radius: 4px;
-  cursor: pointer;
 }

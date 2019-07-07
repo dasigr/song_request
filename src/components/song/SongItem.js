@@ -15,9 +15,9 @@ export class SongItem extends Component {
     return (
       <div className="song-item">
         <p>
-          <i className="fa fa-add" onClick={this.props.markAddedToLibrary.bind(this, nid[0].value)} style={this.getButtonStyle()}>+</i> {' '}
+          <i className="fas fa-plus action-add-to-library" onClick={this.props.markAddedToLibrary.bind(this, nid[0].value)} style={this.getButtonStyle()}></i> {' '}
           <span dangerouslySetInnerHTML={{ __html: title[0].value }}></span> 
-          <button className="delete-song" onClick={this.props.delSong.bind(this, nid[0].value)}>X</button>
+          <i className="fa fa-ellipsis-v action-delete-song" onClick={this.props.delSong.bind(this, nid[0].value)}></i>
         </p>
       </div>
     )

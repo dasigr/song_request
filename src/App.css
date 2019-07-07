@@ -7,8 +7,9 @@
 body {
   background: #121212;
   color: #fff;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4em;
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.5em;
 }
 
 a {
@@ -27,6 +28,12 @@ h1 {
   padding: 0 1rem;
 }
 
+/* Form */
+
+input[type="text"] {
+  color: #333;
+}
+
 .btn {
   display: inline-block;
   border: none;
@@ -38,4 +45,11 @@ h1 {
 
 .btn:hover {
   background: #666;
+}
+
+/* Fonts */
+
+.fa,
+.fas {
+  padding: 0.25rem 0.5rem;
 }

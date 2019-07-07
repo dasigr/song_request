@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
+import axios from 'axios';
 // import uuid from 'uuid';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
@@ -8,11 +9,11 @@ import AddSong from './components/song/AddSong';
 import RequestSong from './components/song/RequestSong';
 import About from './components/pages/About';
 import './App.css';
-import axios from 'axios';
 
 class App extends Component {
   state = {
-    songs: []
+    songs: [],
+    csrf_token: ''
   }
 
   componentDidMount() {
@@ -30,21 +31,21 @@ class App extends Component {
       })});
   }
 
-  // Delete song.
-  delSong = (id) => {
-    axios.delete(`//dev-songhits.pantheonsite.io/songs/${id}`)
-      .then(res => this.setState({ songs: [...this.state.songs.filter(song => song.id !== id)] }));
-  }
-
   // Get CSRF token.
   getCsrfToken = () => {
     axios.get('http://api.songrequest.local/rest/session/token')
       .then(res => {
-        console.log(res.data);
+        this.setState({ csrf_token: res.data });
       })
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  // Delete song.
+  delSong = (id) => {
+    axios.delete(`http://api.songrequest.local/songs/${id}`)
+      .then(res => this.setState({ songs: [...this.state.songs.filter(song => song.id !== id)] }));
   }
 
   // Add song.

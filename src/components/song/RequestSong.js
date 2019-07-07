@@ -19,7 +19,7 @@ export class RequestSong extends Component {
         <input
           type="text"
           name="title"
-          placehoder="Song title"
+          placeholder="Song title"
           value={this.state.title}
           onChange={this.onChange}
           style={{ flex: "10", padding: "5px" }}
