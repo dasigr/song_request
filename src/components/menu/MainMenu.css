@@ -1,0 +1,18 @@
+.main-menu {
+  
+}
+
+ul.menu {
+  margin: 1em 0;
+  text-align: center;
+}
+
+ul.menu li {
+  display: inline;
+  padding: 0 0.5em;
+  margin: 0 0.5em;
+}
+
+ul.menu a {
+  color: #fff;
+}

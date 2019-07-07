@@ -15,7 +15,7 @@ export class RequestSong extends Component {
 
   render() {
     return (
-      <form onSubmit={this.onSubmit} style={{ display: "flex" }}>
+      <form onSubmit={this.onSubmit} style={{ display: "flex", padding: "1rem 0" }}>
         <input
           type="text"
           name="title"

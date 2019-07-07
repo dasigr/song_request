@@ -2,9 +2,6 @@
   display: table;
   width: 100%;
   box-sizing: border-box;
-  background: #333;
-  color: #fff;
-  text-align: center;
 }
 
 .header a {
@@ -12,20 +9,15 @@
   text-decoration: none;
 }
 
+.branding {
+  text-align: center;
+}
+
 .branding .site-name {
   line-height: 1.5em;
+  margin-top: 0.5em;
 }
 
 .branding .site-logo {
   margin-top: 1em;
-}
-
-ul.menu {
-  margin: 1em 0;
-}
-
-ul.menu li {
-  display: inline;
-  padding: 0 0.5em;
-  margin: 0 0.5em;
 }

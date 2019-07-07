@@ -1,21 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './SongItem.css';
 
 export class SongItem extends Component {
-  getStyle = () => {
-    return {
-      padding: "10px",
-      borderBottom: "1px #ccc solid"
-    }
-  }
-
   getButtonStyle = () => {
     return {
       backgroundColor: this.props.song.added ? "#00ffff" : "transparent",
-      padding: "1px 4px",
-      border: "1px #ccc solid",
-      borderRadius: "4px",
-      cursor: "pointer"
     }
   }
 
@@ -23,26 +13,15 @@ export class SongItem extends Component {
     const { nid, title } = this.props.song;
 
     return (
-      <div style={this.getStyle()}>
+      <div className="song-item">
         <p>
           <i className="fa fa-add" onClick={this.props.markAddedToLibrary.bind(this, nid[0].value)} style={this.getButtonStyle()}>+</i> {' '}
           <span dangerouslySetInnerHTML={{ __html: title[0].value }}></span> 
-          <button onClick={this.props.delSong.bind(this, nid[0].value)} style={delBtnStyle}>X</button>
+          <button className="delete-song" onClick={this.props.delSong.bind(this, nid[0].value)}>X</button>
         </p>
       </div>
     )
   }
-}
-
-// Styles
-const delBtnStyle = {
-  background: "#ff0000",
-  color: "#fff",
-  border: "none",
-  padding: "5px 8px",
-  borderRadius: "50%",
-  cursor: "pointer",
-  float: "right"
 }
 
 // PropTypes
