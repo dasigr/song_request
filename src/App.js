@@ -53,7 +53,7 @@ class App extends Component {
       url: "http://api.songrequest.local/entity/node?_format=hal_json",
       headers: {
         'Content-Type': 'application/hal+json',
-        'X-CSRF-Token': '',
+        'X-CSRF-Token': 'rzxyQQ8opxxnbr1OIvyOyHas6fFOb85U_URd1yjYYqY',
         'Accept': 'application/json'
       },
       // withCredentials: true,
@@ -69,7 +69,7 @@ class App extends Component {
         },
         title: [
           {
-            value: title
+            value: 'React Post: ' + title
           }
         ],
         type: [
