@@ -106,6 +106,45 @@ class App extends Component {
       });
   }
 
+  // Update song.
+  updateSong = (id, title) => {
+    axios({
+      method: "patch",
+      url: `http://api.songrequest.local/node/${id}?_format=hal_json`,
+      headers: {
+        'Content-Type': 'application/hal+json',
+        'X-CSRF-Token': 'gJRqVRhvxqcKKhHJ57RuYwdLj-K9q6FfBjIixmLAdbU',
+        'Accept': 'application/json'
+      },
+      // withCredentials: true,
+      // auth: {
+      //   username: "admin",
+      //   password: "admin"
+      // },
+      data: {
+        _links: {
+          type: {
+            href: "http://api.songrequest.local/rest/type/node/song"
+          }
+        },
+        title: [
+          {
+            value: title
+          }
+        ],
+        type: [
+          {
+            target_id: "song"
+          }
+        ]
+      }
+    })
+      .then(res => this.setState({ songs: [...this.state.songs, res.data] }))
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
+
   // Toggled added to library.
   markAddedToLibrary = (id) => {
       this.setState({songs: this.state.songs.map(song => {
