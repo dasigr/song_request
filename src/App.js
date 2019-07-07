@@ -44,8 +44,24 @@ class App extends Component {
 
   // Delete song.
   delSong = (id) => {
-    axios.delete(`http://api.songrequest.local/songs/${id}`)
-      .then(res => this.setState({ songs: [...this.state.songs.filter(song => song.id !== id)] }));
+    axios({
+      method: "delete",
+      url: `http://api.songrequest.local/node/${id}?_format=hal_json`,
+      headers: {
+        'Content-Type': 'application/vnd.api+json',
+        'X-CSRF-Token': 'gJRqVRhvxqcKKhHJ57RuYwdLj-K9q6FfBjIixmLAdbU',
+        'Accept': 'application/json'
+      },
+      // withCredentials: true,
+      // auth: {
+      //   username: "admin",
+      //   password: "admin"
+      // }
+    })
+      .then(res => this.setState({ songs: [...this.state.songs.filter(song => song.nid[0].value !== id)] }))
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   // Add song.
