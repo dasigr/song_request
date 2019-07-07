@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 class Songs extends Component {
   render() {
     return this.props.songs.map((song) => (
-      <SongItem key={song.nid[0].value} song={song} markAddedToLibrary={this.props.markAddedToLibrary} delSong={this.props.delSong} />
+      <SongItem key={song.nid[0].value} song={song} markAddedToLibrary={this.props.markAddedToLibrary} delSong={this.props.delSong} getSong={this.props.getSong} />
     ));
   };
 }

@@ -3,8 +3,13 @@
   border-bottom: 1px #222326 solid;
 }
 
+.song-title {
+  cursor: pointer;
+}
+
 .action-add-to-library {
   cursor: pointer;
+  margin-right: 1rem;
 }
 
 .action-delete-song {

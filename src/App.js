@@ -17,18 +17,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://api.songrequest.local/rest/songs?_format=hal_json")
-      .then(res => this.setState({ songs: res.data }));
-  }
-
-  // Toggled added to library.
-  markAddedToLibrary = (id) => {
-      this.setState({songs: this.state.songs.map(song => {
-        if (song.id === id) {
-          song.added = !song.added
-        }
-        return song;
-      })});
+    this.getSongs();
   }
 
   // Get CSRF token.
@@ -39,6 +28,20 @@ class App extends Component {
       })
       .catch(function (error) {
         console.log(error);
+      });
+  }
+
+  // Get songs.
+  getSongs = () => {
+    axios.get("http://api.songrequest.local/rest/songs?_format=hal_json")
+      .then(res => this.setState({ songs: res.data }));
+  }
+
+  // Get song.
+  getSong = (id) => {
+    axios.get(`http://api.songrequest.local/node/${id}?_format=hal_json`)
+      .then(res => {
+        console.log(res.data);
       });
   }
 
@@ -87,7 +90,7 @@ class App extends Component {
         },
         title: [
           {
-            value: 'React: ' + title
+            value: title
           }
         ],
         type: [
@@ -101,6 +104,16 @@ class App extends Component {
       .catch(function (error) {
         console.log(error);
       });
+  }
+
+  // Toggled added to library.
+  markAddedToLibrary = (id) => {
+      this.setState({songs: this.state.songs.map(song => {
+        if (song.id === id) {
+          song.added = !song.added
+        }
+        return song;
+      })});
   }
 
   // Request a song.
@@ -119,7 +132,7 @@ class App extends Component {
                 <React.Fragment>
                   <AddSong addSong={this.addSong} />
                   <div className="songs">
-                    <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} delSong={this.delSong} />
+                    <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} delSong={this.delSong} getSong={this.getSong} />
                   </div>
                   <RequestSong requestSong={this.requestSong} />
                 </React.Fragment>
