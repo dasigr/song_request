@@ -1,5 +1,5 @@
 .header {
-  display: none;
+  /* display: none; */
 }
 
 .header a {
@@ -7,8 +7,13 @@
   text-decoration: none;
 }
 
+.settings {
+  float: right;
+  margin-top: 1.5rem;
+}
+
 .branding {
-  text-align: center;
+  float: left;
 }
 
 .branding .site-name {

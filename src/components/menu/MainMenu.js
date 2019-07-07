@@ -6,8 +6,9 @@ function MainMenu() {
   return (
     <div className="main-menu">
       <ul className="menu">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/about">About</Link></li>
+        <li><Link to="/"><i className="fas fa-home"></i></Link></li>
+        <li><Link to="/"><i className="fas fa-search"></i></Link></li>
+        <li><Link to="/about"><i className="fas fa-list"></i></Link></li>
       </ul>
     </div>
   )
