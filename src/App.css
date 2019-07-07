@@ -21,6 +21,11 @@ h1 {
   line-height: 1.5em;
 }
 
+.page-title {
+  margin-top: 0.5em;
+  margin-bottom: 0.25em;
+}
+
 .container {
   display: table;
   box-sizing: border-box;

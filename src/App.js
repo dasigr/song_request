@@ -6,7 +6,6 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Songs from './components/song/Songs';
 import AddSong from './components/song/AddSong';
-import RequestSong from './components/song/RequestSong';
 import About from './components/pages/About';
 import './App.css';
 
@@ -173,7 +172,6 @@ class App extends Component {
                   <div className="songs">
                     <Songs songs={this.state.songs} markAddedToLibrary={this.markAddedToLibrary} delSong={this.delSong} getSong={this.getSong} />
                   </div>
-                  <RequestSong requestSong={this.requestSong} />
                 </React.Fragment>
               )} />
               <Route path="/about" component={About} />

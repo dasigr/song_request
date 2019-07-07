@@ -1,7 +1,5 @@
 .header {
-  display: table;
-  width: 100%;
-  box-sizing: border-box;
+  display: none;
 }
 
 .header a {
