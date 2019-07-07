@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get("//dev-songhits.pantheonsite.io/songs?_format=hal_json")
+    axios.get("http://api.songrequest.local/articles?_format=hal_json")
       .then(res => this.setState({ songs: res.data }));
   }
 

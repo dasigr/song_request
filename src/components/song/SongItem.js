@@ -20,11 +20,15 @@ export class SongItem extends Component {
   }
 
   render() {
-    const { id, title } = this.props.song;
+    const { nid, title } = this.props.song;
 
     return (
       <div style={this.getStyle()}>
-        <p><i className="fa fa-add" onClick={this.props.markAddedToLibrary.bind(this, id)} style={this.getButtonStyle()}>+</i> <span dangerouslySetInnerHTML={{ __html: title }}></span> <button onClick={this.props.delSong.bind(this, id)} style={delBtnStyle}>X</button></p>
+        <p>
+          <i className="fa fa-add" onClick={this.props.markAddedToLibrary.bind(this, nid[0].value)} style={this.getButtonStyle()}>+</i> {' '}
+          <span dangerouslySetInnerHTML={{ __html: title[0].value }}></span> 
+          <button onClick={this.props.delSong.bind(this, nid[0].value)} style={delBtnStyle}>X</button>
+        </p>
       </div>
     )
   }
