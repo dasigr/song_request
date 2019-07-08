@@ -7,6 +7,9 @@ import Footer from './components/layout/Footer';
 import Songs from './components/song/Songs';
 import AddSong from './components/song/AddSong';
 import About from './components/pages/About';
+import UserLogin from './components/auth/UserLogin';
+import UserRegistration from './components/auth/UserRegistration';
+import UserPassword from './components/auth/UserPassword';
 import './App.css';
 
 class App extends Component {
@@ -175,6 +178,9 @@ class App extends Component {
                 </React.Fragment>
               )} />
               <Route path="/about" component={About} />
+              <Route path="/user/login" component={UserLogin} />
+              <Route path="/user/register" component={UserRegistration} />
+              <Route path="/user/password" component={UserPassword} />
             </div>
           </div>
           <Footer />
